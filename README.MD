@@ -1,0 +1,1 @@
+rich site summary (RSS) blog aggregator
