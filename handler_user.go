@@ -11,7 +11,7 @@ import (
 
 func handlerLogin(s *state, cmd command) error {
 	if len(cmd.args) == 0 {
-		return fmt.Errorf("login handler expects username")
+		return fmt.Errorf("need to login with a username")
 	}
 
 	_, err := s.db.GetUser(context.Background(), cmd.args[0])

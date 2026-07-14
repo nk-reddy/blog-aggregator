@@ -18,7 +18,7 @@ func handlerAgg(s *state, cmd command) error {
 	return nil
 }
 
-func handlerFeed(s *state, cmd command) error {
+func handlerAddFeed(s *state, cmd command) error {
 	user, err := s.db.GetUser(context.Background(), s.cfg.CurrentUserName)
 	if err != nil {
 		return err
@@ -40,6 +40,28 @@ func handlerFeed(s *state, cmd command) error {
 		return err
 	}
 
+	_, err = s.db.CreateFeedFollow(context.Background(), database.CreateFeedFollowParams{
+		ID:        uuid.New(),
+		CreatedAt: time.Now(),
+		UpdatedAt: time.Now(),
+		UserID:    user.ID,
+		FeedID:    feed.ID,
+	})
+	if err != nil {
+		return err
+	}
+
 	fmt.Printf("%+v\n", feed)
+	return nil
+}
+
+func handlerFeeds(s *state, cmd command) error {
+	feeds, err := s.db.GetFeeds(context.Background())
+	if err != nil {
+		return err
+	}
+	for _, feed := range feeds {
+		fmt.Printf("Feed Name: %s; Feed URL: %s; Created By: %s\n", feed.FeedName, feed.Url, feed.Name)
+	}
 	return nil
 }
