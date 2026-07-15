@@ -1,6 +1,7 @@
 # Overview
-Gator is a RSS feed aggregator built with Go. You can register a user, follow 
-RSS feeds by URL, periodically collect posts, and browse posts from feeds.
+Gator is a RSS feed aggregator built with Go. 
+
+You can register a user, follow RSS feeds by URL, periodically collect posts, and browse posts from feeds.
 
 # Requirements
 - Go 
@@ -9,16 +10,25 @@ RSS feeds by URL, periodically collect posts, and browse posts from feeds.
 # Setup
 1. Database
 Create a PostgreSQL database named gator.
+
 `psql postgres`
+
 `CREATE DATABASE gator;`
+
 `\q`
 
 2. Configuration
+
 Gator uses a JSON config file in your home directory:
+
 `~/.gatorconfig.json`
+
 Create the file with the following:
+
 `{ "db_url": "postgres://username:password@localhost:5432/gator?sslmode=disable"}`
+
 where username and password are your PostgreSQL credentials.
+
 
 # Installing CLI
 Clone the repo:
