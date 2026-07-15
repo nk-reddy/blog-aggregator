@@ -1,5 +1,5 @@
 # Overview
-Gator is a RSS feed aggregator built with Go. 
+gator is a RSS feed aggregator built with Go. 
 
 You can register a user, follow RSS feeds by URL, periodically collect posts, and browse posts from feeds.
 
